@@ -1,0 +1,41 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+
+    attributes:
+      user:
+        email: メールアドレス
+        password: パスワード
+
+  enumerize:
+    user:
+      gender:
+        man: 男性
+        woman: 女性
+
+  views:
+    back: 戻る
+    new: 新規登録
+    edit: 編集
+    show: 詳細
+    save: 登録
+    sending: 処理中
+    destroy: 削除
+    confirm: 削除します。よろしいですか？
+    invited: 招待メールを送信します。よろしいですか？
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      next: "次 &rsaquo;"
+      previous: "&lsaquo; 前"
+      truncate: "&hellip;"
+
+  controllers:
+    created: 新規登録しました
+    destroyed: 削除しました
+    updated: 更新しました
+    invited: 招待メールを送信しました
+    answered: 回答しました
+    copied: コピーしました
+    failed: 失敗しました

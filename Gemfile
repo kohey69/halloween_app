@@ -9,6 +9,7 @@ gem 'jsbundling-rails'
 gem 'pg'
 gem 'propshaft'
 gem 'puma'
+gem 'simple_form'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 # gem "image_processing", "~> 1.2"
