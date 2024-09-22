@@ -4,6 +4,7 @@ gem 'rails', '~> 7.2.1'
 
 gem 'bootsnap', require: false
 gem 'cssbundling-rails'
+gem 'haml-rails'
 gem 'jsbundling-rails'
 gem 'pg'
 gem 'propshaft'
