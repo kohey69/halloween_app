@@ -10,7 +10,7 @@ class StoriesController < ApplicationController
       parameters: {
         model: 'gpt-4o',
         messages: [
-          { role: 'system', content: 'ユーザーが入力した設定で、面白おかしく展開を予想して適当な短編物語を書いて。' },
+          { role: 'system', content: 'ユーザーが入力した設定で、面白おかしく展開を予想して適当な短編物語を書いて。文章はHTMLでフォーマットしてください。' },
           { role: 'user', content: "もしも #{params[:first_input]} が #{params[:second_input]} だったら" },
         ],
         max_tokens: 2000,

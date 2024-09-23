@@ -27,7 +27,7 @@ export default class extends Controller {
       .then(data => {
         this.stopLoadingAnimation();
         this.overlayTarget.classList.add("d-none");
-        this.outputTarget.insertAdjacentHTML("afterbegin", this.simpleFormat(data.story));
+        this.outputTarget.insertAdjacentHTML("afterbegin", data.story);
         this.skeletonTarget.classList.add("d-none");
         this.outputTarget.classList.remove("d-none");
       })
