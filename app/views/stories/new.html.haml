@@ -5,10 +5,10 @@
     = form_with url: stories_path, method: :post, remote: true, data: { action: "story-generator#submit" } do |form|
       .mb-3
         = form.label :first_input, "もしも"
-        = form.text_field :first_input, class: "form-control", placeholder: "例: 猫"
+        = form.text_field :first_input, class: "form-control", placeholder: "例: ドラえもん"
       .mb-3
         = form.label :second_input, "が...だったら"
-        = form.text_field :second_input, class: "form-control", placeholder: "例: 人間"
+        = form.text_field :second_input, class: "form-control", placeholder: "例: のび太と犬猿の仲"
       .mb-3
         = form.submit "ストーリーを生成", class: "btn btn-primary"
   .story-output.d-none.text-center{ data: { story_generator_target: 'output' } }
