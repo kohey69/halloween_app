@@ -1,0 +1,14 @@
+.container.d-flex.justify-content-center.align-items-center.vh-100{ data: { controller: "story-generator" } }
+  .text-center
+    = form_with url: stories_path, method: :post, remote: true, data: { action: "story-generator#submit", story_generator_target: 'form' } do |form|
+      .mb-3
+        = form.label :first_input, "もしも"
+        = form.text_field :first_input, class: "form-control", placeholder: "例: 猫"
+      .mb-3
+        = form.label :second_input, "が...だったら"
+        = form.text_field :second_input, class: "form-control", placeholder: "例: 人間"
+      .mb-3
+        = form.submit "Generate Story", class: "btn btn-primary"
+    .mt-4{ data: { story_generator_target: 'output' } }
+    .spinner-border.text-primary.mt-4{ role: "status", style: "display: none;", data: { story_generator_target: 'spinner' } }
+      %span.visually-hidden Loading...
