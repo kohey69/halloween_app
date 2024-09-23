@@ -1,6 +1,8 @@
-.container.d-flex.justify-content-center.align-items-center.vh-100{ data: { controller: "story-generator" } }
-  .text-center
-    = form_with url: stories_path, method: :post, remote: true, data: { action: "story-generator#submit", story_generator_target: 'form' } do |form|
+.story-wrapper.py-3.container.d-flex.justify-content-center.align-items-center{ data: { controller: "story-generator" } }
+  .text-center{ data: { story_generator_target: 'form' } }
+    %h1 もしもボックスジェネレータ
+    %p.text-muted あなたが想像するアニメのシチュエーションを入力してアナザーストーリーを作成してください
+    = form_with url: stories_path, method: :post, remote: true, data: { action: "story-generator#submit" } do |form|
       .mb-3
         = form.label :first_input, "もしも"
         = form.text_field :first_input, class: "form-control", placeholder: "例: 猫"
@@ -8,7 +10,16 @@
         = form.label :second_input, "が...だったら"
         = form.text_field :second_input, class: "form-control", placeholder: "例: 人間"
       .mb-3
-        = form.submit "Generate Story", class: "btn btn-primary"
-    .mt-4{ data: { story_generator_target: 'output' } }
-    .spinner-border.text-primary.mt-4{ role: "status", style: "display: none;", data: { story_generator_target: 'spinner' } }
+        = form.submit "ストーリーを生成", class: "btn btn-primary"
+  .story-output.d-none.text-center{ data: { story_generator_target: 'output' } }
+    = link_to '戻る', root_path, class: 'text-danger'
+  .story-output-skeleton.d-none.text-center{ data: { story_generator_target: 'skeleton' } }
+    %p アナザーストーリを生成中です
+    %p ちょっと時間かかるよ
+    %p 気長に待ってもらえると嬉しいよ
+    %p ...
+  .overlay.d-none.d-flex.flex-column.justify-content-center.align-items-center{"data-story-generator-target" => "overlay"}
+    .spinner-border.text-primary
       %span.visually-hidden Loading...
+    .loading-message.text-white{ data: { story_generator_target: "loadingMessage" } }
+      %span 生成しています
