@@ -101,7 +101,7 @@ GEM
     cssbundling-rails (1.4.1)
       railties (>= 6.0.0)
     date (3.3.4)
-    dockerfile-rails (1.6.17)
+    dockerfile-rails (1.6.18)
       rails (>= 3.0.0)
     drb (2.2.1)
     erubi (1.13.0)
