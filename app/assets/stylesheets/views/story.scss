@@ -5,6 +5,13 @@
   border-radius: 12px;
 }
 
+.story-output {
+  img {
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
 .overlay {
   position: fixed;
   top: 0;

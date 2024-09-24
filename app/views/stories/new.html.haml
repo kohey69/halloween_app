@@ -11,7 +11,7 @@
         = form.text_field :second_input, class: "form-control", placeholder: "例: のび太と犬猿の仲"
       .mb-3
         = form.submit "ストーリーを生成", class: "btn btn-primary"
-  .story-output.d-none.text-center{ data: { story_generator_target: 'output' } }
+  .story-output.d-none{ data: { story_generator_target: 'output' } }
     = link_to '戻る', root_path, class: 'text-danger'
   .story-output-skeleton.d-none.text-center{ data: { story_generator_target: 'skeleton' } }
     %p アナザーストーリを生成中です

@@ -27,6 +27,7 @@ export default class extends Controller {
       .then(data => {
         this.stopLoadingAnimation();
         this.overlayTarget.classList.add("d-none");
+        this.outputTarget.insertAdjacentHTML("afterbegin", `<img src="${data.image_url}" alt="生成した画像">`);
         this.outputTarget.insertAdjacentHTML("afterbegin", data.story);
         this.skeletonTarget.classList.add("d-none");
         this.outputTarget.classList.remove("d-none");
