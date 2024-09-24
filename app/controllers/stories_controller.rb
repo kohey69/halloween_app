@@ -22,10 +22,10 @@ class StoriesController < ApplicationController
       }
     )
     @story = text_response.dig('choices', 0, 'message', 'content').strip
-
+    story_text = ActionView::Base.full_sanitizer.sanitize(@story)
     image_prompt = <<~PROMPT
-      以下の設定で漫画風の画像を生成してください。
-      #{@story}
+      以下の設定で日本の漫画風の画像を生成してください。
+      #{story_text}
     PROMPT
     image_response = client.images.generate(
       parameters: {
@@ -36,9 +36,9 @@ class StoriesController < ApplicationController
         response_format: 'url',
       }
     )
-    @image_url = image_response.dig('data', 0, 'url')
+    @image_url = image_response.dig('data', 0, 'url') || url_for('image_generate_failed.png')
 
-    render json: { story: @story, image_url: @image_url }
+    render json: { story: @story, image_url: @image_url, story_text: }
   rescue Faraday::BadRequestError => e
     render json: { error: e.message, details: e.response_body }, status: :bad_request
   end

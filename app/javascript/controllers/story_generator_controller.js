@@ -26,6 +26,7 @@ export default class extends Controller {
       .then(response => response.json())
       .then(data => {
         this.stopLoadingAnimation();
+        console.log(data.story_text)
         this.overlayTarget.classList.add("d-none");
         this.outputTarget.insertAdjacentHTML("afterbegin", `<img src="${data.image_url}" alt="生成した画像">`);
         this.outputTarget.insertAdjacentHTML("afterbegin", data.story);
